@@ -115,4 +115,26 @@ const getUniqueValues = (
     }
 
     return result;
-}
+};
+
+type Product = {
+    name: string;
+    price: number;
+    quantity: number;
+    discount?: number;
+};
+
+const calculateTotalPrice = (products: Product[]): number => {
+    return products.reduce((sum, item) => {
+        const totalPrice = item.price * item.quantity;
+
+        if (item.discount) {
+            const discountAmount = (totalPrice * item.discount) / 100;
+            return sum + (totalPrice - discountAmount);
+        }
+
+        return sum + totalPrice;
+    }, 0);
+};
+
+
