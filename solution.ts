@@ -47,3 +47,13 @@ const person2 = new Person('Alice', 25);
 // console.log(person1.getDetails());
 // console.log(person2.getDetails());
 
+
+type Rating = {
+    title: string,
+    rating: number
+}
+
+const filterByRating = (arr: Rating[]): Rating[] => {
+    return (arr.filter(rat => rat.rating >= 4))
+}
+
