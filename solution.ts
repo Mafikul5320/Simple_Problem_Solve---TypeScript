@@ -57,3 +57,14 @@ const filterByRating = (arr: Rating[]): Rating[] => {
     return (arr.filter(rat => rat.rating >= 4))
 }
 
+
+type User = {
+    id: number;
+    name: string;
+    email: string;
+    isActive: boolean;
+};
+
+const filterActiveUsers = (user: User[]): User[] => {
+    return (user.filter(activeUser => activeUser.isActive === true))
+}
