@@ -83,3 +83,36 @@ const printBookDetails = (book: Book): void => {
     return console.log(`Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, isAvailable: ${available}`)
 };
 
+
+
+type NumOrStr = number | string;
+
+const getUniqueValues = (
+    arr1: NumOrStr[],
+    arr2: NumOrStr[]
+): NumOrStr[] => {
+    const result: NumOrStr[] = [];
+
+    const check = (value: NumOrStr): boolean => {
+        for (let i = 0; i < result.length; i++) {
+            if (result[i] === value) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    for (let i = 0; i < arr1.length; i++) {
+        if (!check(arr1[i])) {
+            result[result.length] = arr1[i];
+        }
+    }
+
+    for (let i = 0; i < arr2.length; i++) {
+        if (!check(arr2[i])) {
+            result[result.length] = arr2[i];
+        }
+    }
+
+    return result;
+}
